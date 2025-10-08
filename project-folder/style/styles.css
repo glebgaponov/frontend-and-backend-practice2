@@ -1,0 +1,508 @@
+/* ===== БАЗОВЫЕ СТИЛИ ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Современный шрифт для лучшей читаемости */
+    margin: 0; /* Убираем стандартные отступы браузера */
+    padding: 0; /* Убираем стандартные внутренние отступы */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Красивый градиентный фон всей страницы */
+    min-height: 100vh; /* Минимальная высота равна высоте окна браузера */
+}
+
+/* ===== КОНТЕЙНЕР СТРАНИЦЫ ===== */
+.page-container {
+    max-width: 1200px; /* Максимальная ширина контента */
+    margin: 0 auto; /* Центрирование контейнера по горизонтали */
+    background: white; /* Белый фон для основного содержимого */
+    min-height: 100vh; /* Минимальная высота равна высоте окна браузера */
+    box-shadow: 0 0 30px rgba(0,0,0,0.1); /* Легкая тень вокруг всего контента */
+}
+
+/* ===== ШАПКА ===== */
+.header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Темный градиентный фон */
+    color: white; /* Белый цвет текста */
+    text-align: center; /* Выравнивание текста по центру */
+    padding: 30px; /* Внутренние отступы со всех сторон */
+    font-size: 28px; /* Размер шрифта */
+    font-weight: 300; /* Легкое начертание шрифта */
+    letter-spacing: 2px; /* Расстояние между буквами */
+}
+
+/* ===== НАВИГАЦИЯ ===== */
+.nav {
+    background: #2c3e50; /* Темно-синий фон навигации */
+    padding: 20px 0; /* Вертикальные отступы */
+}
+
+.nav-list {
+    list-style: none; /* Убираем маркеры списка */
+    margin: 0; /* Убираем внешние отступы */
+    padding: 0; /* Убираем внутренние отступы */
+    display: flex; /* Горизонтальное расположение элементов */
+    justify-content: center; /* Выравнивание по центру */
+    gap: 25px; /* Расстояние между элементами навигации */
+}
+
+.nav-item {
+    margin: 0; /* Убираем отступы у пунктов меню */
+}
+
+.nav-link {
+    color: white; /* Белый цвет текста ссылок */
+    text-decoration: none; /* Убираем подчеркивание ссылок */
+    padding: 12px 25px; /* Отступы внутри ссылок */
+    border-radius: 25px; /* Скругленные углы (капсульная форма) */
+    transition: all 0.3s ease; /* Плавные анимации при изменении */
+    font-weight: 500; /* Средняя жирность шрифта */
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.1); /* Полупрозрачный белый фон при наведении */
+    transform: translateY(-2px); /* Легкое поднятие элемента при наведении */
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+.content1 {
+    padding: 10px; /* Внутренние отступы контента */
+    max-width: 900px; /* Максимальная ширина контента */
+    margin: 0 auto; /* Центрирование контента */
+}
+.content {
+    padding: 40px; /* Внутренние отступы контента */
+    max-width: 900px; /* Максимальная ширина контента */
+    margin: 0 auto; /* Центрирование контента */
+}
+
+/* ===== ГЛАВНАЯ СТРАНИЦА ===== */
+.profile-header {
+    text-align: center; /* Выравнивание по центру */
+    margin-bottom: 40px; /* Отступ снизу */
+}
+
+.profile-title {
+    font-size: 32px; /* Размер шрифта заголовка */
+    color: #2c3e50; /* Темно-синий цвет текста */
+    margin-bottom: 10px; /* Отступ снизу */
+    font-weight: 300; /* Легкое начертание шрифта */
+}
+
+.profile-photo {
+    width: 220px; /* Фиксированная ширина фото */
+    height: 280px; /* Фиксированная высота фото */
+    border-radius: 15px; /* Скругленные углы фото */
+    object-fit: cover; /* Обрезка фото для сохранения пропорций */
+    margin: 20px auto; /* Центрирование и отступы */
+    border: 4px solid #667eea; /* Синяя рамка вокруг фото */
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3); /* Тень с синим оттенком */
+}
+
+.profile-name {
+    font-size: 24px; /* Размер шрифта имени */
+    color: #2c3e50; /* Темно-синий цвет текста */
+    margin: 10px 0; /* Вертикальные отступы */
+    font-weight: 500; /* Средняя жирность шрифта */
+}
+
+.profile-group {
+    font-size: 18px; /* Размер шрифта группы */
+    color: #7f8c8d; /* Серый цвет текста */
+    margin: 5px 0; /* Вертикальные отступы */
+}
+
+.about-me {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* Светлый градиентный фон */
+    padding: 25px; /* Внутренние отступы */
+    border-radius: 15px; /* Скругленные углы */
+    margin: 30px 0; /* Вертикальные отступы */
+    border-left: 5px solid #667eea; /* Синяя полоса слева */
+    font-size: 16px; /* Размер шрифта текста */
+    line-height: 1.8; /* Межстрочный интервал */
+}
+
+/* ===== НАВЫКИ ===== */
+.skills-container {
+    display: flex; /* Горизонтальное расположение навыков */
+    justify-content: center; /* Выравнивание по центру */
+    flex-wrap: wrap; /* Перенос на новую строку при необходимости */
+    gap: 15px; /* Расстояние между навыками */
+    margin: 30px 0; /* Вертикальные отступы */
+}
+
+.skill-tag {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); /* Голубой градиентный фон */
+    color: white; /* Белый цвет текста */
+    padding: 12px 25px; /* Внутренние отступы */
+    border-radius: 25px; /* Круглые углы (капсульная форма) */
+    font-weight: 600; /* Жирный шрифт */
+    font-size: 14px; /* Размер шрифта */
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3); /* Тень с голубым оттенком */
+    transition: all 0.3s ease; /* Плавные анимации при изменении */
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px); /* Поднятие элемента при наведении */
+    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4); /* Увеличение тени при наведении */
+}
+
+/* ===== ОПЫТ РАБОТЫ ===== */
+.experience-section {
+    margin-top: 50px; /* Отступ сверху */
+}
+
+.section-title {
+    font-size: 28px; /* Размер шрифта заголовка секции */
+    color: #2c3e50; /* Темно-синий цвет текста */
+    text-align: center; /* Выравнивание по центру */
+    margin-bottom: 30px; /* Отступ снизу */
+    font-weight: 300; /* Легкое начертание шрифта */
+}
+
+.experience-card {
+    background: white; /* Белый фон карточки */
+    padding: 25px; /* Внутренние отступы */
+    margin: 20px 0; /* Вертикальные отступы */
+    border-radius: 12px; /* Скругленные углы */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08); /* Легкая тень */
+    border-left: 4px solid #667eea; /* Синяя полоса слева */
+    transition: transform 0.3s ease; /* Плавная анимация трансформации */
+}
+
+.experience-card:hover {
+    transform: translateX(5px); /* Сдвиг вправо при наведении */
+}
+
+.experience-title {
+    font-size: 20px; /* Размер шрифта заголовка опыта */
+    color: #2c3e50; /* Темно-синий цвет текста */
+    margin: 0 0 10px 0; /* Отступ снизу */
+    font-weight: 600; /* Жирный шрифт */
+}
+
+.experience-desc {
+    color: #7f8c8d; /* Серый цвет текста */
+    line-height: 1.6; /* Межстрочный интервал */
+    margin: 0; /* Убираем отступы */
+}
+
+/* ===== ФУТЕР ===== */
+.footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Темный градиентный фон */
+    color: white; /* Белый цвет текста */
+    text-align: center; /* Выравнивание по центру */
+    padding: 30px; /* Внутренние отступы */
+    margin-top: 50px; /* Отступ сверху */
+}
+.products-container {
+    display: flex;              /* делаем гибкий контейнер */
+    justify-content: center;    /* выравниваем по центру */
+    gap: 300px;                  /* расстояние между блоками */
+    flex-wrap: wrap;            /* чтобы переносились на новую строку */
+    margin-top: 20px;
+}
+
+.product1 {
+    background: rgb(255, 255, 255); 
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 300px;           /* одинаковая ширина для всех */
+    flex: 1 1 250px;            /* можно сжимать/растягивать */
+}
+
+.product img {
+    width: 100%;                /* картинка всегда под ширину блока */
+    height: auto;               /* сохраняем пропорции */
+    border-radius: 10px;
+}
+
+.product1-title {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #2c3e50;
+}
+
+.product1-price {
+    font-size: 18px;
+    color: #333;
+}
+
+
+/* Заголовок страницы новостей */
+#news-title {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+}
+/* Каждая новость */
+.news-item {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* Заголовки новостей */
+.news-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+/* Дата и автор */
+.news-item em {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+#contacts-title {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.contacts {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contacts p {
+    font-size: 18px;
+    color: #2c3e50;
+    margin: 10px 0;
+}
+
+.contact-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 16px;
+    color: white;
+    background: #667eea;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;       /* превращаем в блочный элемент */
+    margin: 0 auto; 
+}
+
+.contact-btn:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+}
+.neon-box {
+    position: relative;
+    background: white;           /* Белый фон коробки */
+    color: #2c3e50;              /* Тёмный текст для читаемости */
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 0, 183, 0.5); /* Подсветка */
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+  }
+  
+  /* При наведении — усиливаем эффект подсветки */
+  .neon-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(81, 245, 5, 0.8), 
+                0 0 60px rgba(255, 181, 9, 0.4);
+  }
+  .add-to-cart-btn {
+    margin-top: 15px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: #00d1d1; /* яркий неоновый цвет */
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 209, 209, 0.5);
+}
+
+.add-to-cart-btn:hover {
+    background: #00f0f0;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    transform: translateY(-2px);
+}
+.text-block {
+    max-width: 700px;          /* Максимальная ширина для удобного чтения */
+    margin: 0 auto;            /* Центрируем блок по горизонтали */
+    padding: 20px 150px;        /* Внутренние отступы сверху/снизу и слева/справа */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Читаемый шрифт */
+    font-size: 20px;           /* Оптимальный размер текста */
+    line-height: 1.6;          /* Межстрочный интервал для комфортного чтения */
+    color: #2c3e50;            /* Темно-серый цвет для текста — мягче, чем черный */
+    text-align: justify;       /* Выравниваем текст по ширине, чтобы было ровно */
+    background: #fff;          /* Белый фон, если нужно */
+    border-radius: 10px;       /* Скругленные углы */
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05); /* Легкая тень для объема */
+    text-align: center;
+}
+/* Модальное окно */
+.modal {
+    display: none; /* по умолчанию скрыто */
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  /* Контейнер формы */
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+  }
+  
+  /* Крестик закрытия */
+  .close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  /* Стили формы */
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .modal-content input,
+  .modal-content select,
+  .modal-content textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .modal-content button[type="submit"] {
+    background-color: #667eea;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+  }
+  
+  .modal-content button[type="submit"]:hover {
+    background-color: #764ba2;
+  }
+  /* ===== АДАПТИВ ===== */
+
+/* --- Маленькие экраны (телефон до 480px) --- */
+@media (max-width: 480px) {
+    .header {
+      font-size: 20px;
+      padding: 15px;
+    }
+  
+    .nav-list {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .profile-photo {
+      width: 120px;
+      height: auto;
+    }
+  
+    .profile-title {
+      font-size: 22px;
+    }
+  
+    .profile-name {
+      font-size: 18px;
+    }
+  
+    .about-me {
+      font-size: 14px;
+      padding: 15px;
+    }
+  
+    .products-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+  
+    .product1 {
+      max-width: 100%;
+    }
+  
+    .contact-btn {
+      width: 100%;
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .text-block {
+      padding: 15px;
+      font-size: 16px;
+    }
+  }
+  
+  /* --- Средние экраны (планшеты до 768px) --- */
+  @media (max-width: 768px) {
+    .nav-list {
+      gap: 15px;
+    }
+  
+    .profile-photo {
+      width: 150px;
+      height: auto;
+    }
+  
+    .products-container {
+      gap: 30px;
+      justify-content: center;
+    }
+  
+    .product1 {
+      flex: 1 1 45%; /* две карточки в ряд */
+    }
+  
+    .text-block {
+      padding: 20px;
+      font-size: 18px;
+    }
+  }
+  
+  /* --- Ноуты до 1024px --- */
+  @media (max-width: 1024px) {
+    .page-container {
+      max-width: 95%;
+    }
+  
+    .products-container {
+      gap: 50px;
+    }
+  }
+  

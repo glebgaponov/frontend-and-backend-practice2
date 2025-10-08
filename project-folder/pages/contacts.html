@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="../style/styles.css">
+</head>
+<body>
+    <div class="page-container">
+
+        <!-- Хэдер -->
+        <header class="header">
+            Тут вы можете связаться с нами. 
+        </header>
+        <header class="header">
+            (лучше не связываться) 😨
+        </header>
+
+        <!-- Навигация -->
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <!-- Основной контент -->
+        <main class="content1">
+            <h2 id="contacts-title">Наши контакты</h2>
+            <section class="contacts">
+                <p><strong>Email :</strong> glebdremin@mail.ru</p>
+            </section>
+        </main>
+        <main class="content1">
+            <section class="contacts">
+                <p><strong>Адресс :</strong> г.Москва ул.Сонная д55</p>
+        </main>
+        <main class="content1">
+            <section class="contacts">
+                <p><strong>Sochial Media :</strong> TG, INSTA, ??VK??</p>
+        </main>
+        <main class="content1">
+            <section class="contacts">
+                <p><strong>Телефон :</strong> +7 (495) 123-45-67</p>
+        </main>
+        <!--КНОПКА-->
+        <button class="contact-btn" onclick="openForm()">Связаться с нами</button>
+        <!--МОДАЛКА К КНОПКЕ-->
+        <div class="modal" id="contactModal">
+            <div class="modal-content">
+              <span class="close" onclick="closeForm()">&times;</span>
+              <h2>Обратная связь</h2>
+              <form id="contactForm">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+          
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required>
+          
+                <label for="email">Почта:</label>
+                <input type="email" id="email" name="email" required>
+          
+                <label for="category">Категория:</label>
+                <select id="category" name="category">
+                  <option value="вопрос">Вопрос</option>
+                  <option value="пожелание">Пожелание</option>
+                  <option value="жалоба">Жалоба</option>
+                </select>
+          
+                <label for="message">Текст обращения:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+          
+                <button type="submit">Отправить</button>
+              </form>
+            </div>
+          </div>
+          <script>
+            // открыть модалку
+            function openForm() {
+              document.getElementById("contactModal").style.display = "block";
+            }
+            
+            // закрыть модалку
+            function closeForm() {
+              document.getElementById("contactModal").style.display = "none";
+            }
+            
+            // закрывать при клике вне окна
+            window.onclick = function(event) {
+              let modal = document.getElementById("contactModal");
+              if (event.target === modal) {
+                modal.style.display = "none";
+              }
+            }
+            </script>
+            
+        <!-- Футер -->
+        <footer class="footer">
+            &copy; 2025 frontend-and-backend-development. Все права защищены.
+        </footer>
+    </div>
+</body>
+</html>
