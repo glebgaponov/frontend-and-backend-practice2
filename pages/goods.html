@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог товаров</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        <style>.product-card {
+            transition: all 0.4s ease;
+            border: none;
+            border-radius: 15px;
+            position: relative;
+            background: transparent;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg,
+                    #ff0000, #ff7300, #fffb00, #48ff00,
+                    #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            background-size: 400%;
+            border-radius: 17px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            animation: neonRainbow 20s linear infinite;
+            filter: blur(5px);
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow:
+                0 0 20px rgba(255, 255, 255, 0.6),
+                0 0 40px rgba(255, 255, 255, 0.4),
+                0 0 60px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes neonRainbow {
+            0% {
+                background-position: 0 0;
+            }
+
+            50% {
+                background-position: 400% 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        .product-card .card-body {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 0 0 15px 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dark-theme .product-card .card-body {
+            background: rgba(45, 55, 72, 0.95);
+        }
+
+        .product-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .added {
+            background-color: #198754 !important;
+            border-color: #198754 !important;
+        }
+
+        /* Темная тема */
+        .dark-theme {
+            --bs-body-bg: #1a1d23;
+            --bs-body-color: #e2e8f0;
+            --bs-light-rgb: 45, 55, 72;
+            --bs-dark-rgb: 26, 32, 44;
+        }
+
+        .dark-theme body {
+            background-color: var(--bs-body-bg);
+            color: var(--bs-body-color);
+        }
+
+        .dark-theme .card {
+            background-color: rgba(var(--bs-light-rgb), 1);
+            color: var(--bs-body-color);
+        }
+
+        .dark-theme .bg-light {
+            background-color: rgba(var(--bs-light-rgb), 1) !important;
+        }
+
+        .dark-theme .text-muted {
+            color: #a0aec0 !important;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <div class="container-fluid p-0">
+        <!-- Header -->
+        <header class="bg-primary text-white py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h1 class="h3 mb-0">Товары, которые захочет каждый</h1>
+                    </div>
+                    <div class="col-auto">
+                        <button id="theme-toggle" class="btn btn-outline-light">
+                            <i class="bi bi-moon"></i> Тёмная тема
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">
+                                <i class="bi bi-house me-1"></i>Главная
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="goods.html">
+                                <i class="bi bi-cart me-1"></i>Товары
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="news.html">
+                                <i class="bi bi-newspaper me-1"></i>Новости
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacts.html">
+                                <i class="bi bi-telephone me-1"></i>Контакты
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="container my-5">
+            <!-- Page Header -->
+            <div class="row mb-4">
+                <div class="col-12 text-center">
+                    <h2 class="text-primary mb-3">Каталог товаров</h2>
+                    <p class="lead text-muted">Мы предлагаем широкий ассортимент качественных товаров по доступным ценам
+                    </p>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="row g-4 justify-content-center">
+                <!-- Товар 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card h-100 shadow-sm">
+                        <img src="../images/goods1.jpg" class="card-img-top product-img" alt="Услуга Помощь другу">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-primary">Услуга "Помощь другу"</h5>
+                            <p class="card-text flex-grow-1">Настоящая дружба и поддержка в любую минуту. Всегда готов
+                                прийти на помощь в трудную ситуацию.</p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="h5 text-success">Бесценно ₽</span>
+                                    <span class="badge bg-warning">Хит продаж</span>
+                                </div>
+                                <button class="btn btn-primary w-100 add-to-cart-btn">
+                                    <i class="bi bi-cart-plus me-2"></i>Добавить в корзину
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Товар 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card h-100 shadow-sm">
+                        <img src="../images/goods2.jpg" class="card-img-top product-img" alt="Кот Ууэээээууэ">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-primary">Кот "Ууэээээууэ"</h5>
+                            <p class="card-text flex-grow-1">Эксклюзивный кот с уникальными вокальными данными.
+                                Гарантированно поднимет настроение!</p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="h5 text-success">₽₽₽</span>
+                                    <span class="badge bg-info">Эксклюзив</span>
+                                </div>
+                                <button class="btn btn-primary w-100 add-to-cart-btn">
+                                    <i class="bi bi-cart-plus me-2"></i>Добавить в корзину
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Товар 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card h-100 shadow-sm">
+                        <img src="../images/goods3.jpg" class="card-img-top product-img" alt="Счастье">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-primary">Счастье</h5>
+                            <p class="card-text flex-grow-1">То, что делает жизнь прекрасной и наполненной смыслом.
+                                Доступно каждому, но ценится по-настоящему.</p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="h5 text-success">Бесплатно</span>
+                                    <span class="badge bg-success">Популярно</span>
+                                </div>
+                                <button class="btn btn-primary w-100 add-to-cart-btn">
+                                    <i class="bi bi-cart-plus me-2"></i>Добавить в корзину
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white py-4 mt-5">
+            <div class="container text-center">
+                <p class="mb-0">&copy; 2025 frontend-and-backend-development. Все права защищены.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Переключение темы
+        const themeToggle = document.getElementById('theme-toggle');
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+
+            themeToggle.innerHTML = isDark
+                ? '<i class="bi bi-sun"></i> Светлая тема'
+                : '<i class="bi bi-moon"></i> Тёмная тема';
+
+            // Сохраняем выбор пользователя
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Проверяем сохраненную тему при загрузке
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                themeToggle.innerHTML = '<i class="bi bi-sun"></i> Светлая тема';
+            }
+        });
+
+        // Корзина
+        const buttons = document.querySelectorAll('.add-to-cart-btn');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="bi bi-check2 me-2"></i>Успешно!🍻';
+                this.classList.add('added');
+                this.disabled = true;
+
+                // Через 2 секунды возвращаем исходное состояние
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.classList.remove('added');
+                    this.disabled = false;
+                }, 2000);
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
