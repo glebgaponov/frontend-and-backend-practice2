@@ -1,180 +1,383 @@
-/* style/styles.css */
-
-/* ------------------- CSS переменные ------------------- */
 :root {
-  --color-main: #2c3e50;
-  --color-accent: #3498db;
-  --color-light: #ecf0f1;
-  --color-dark: #34495e;
-  --color-text: #2c3e50;
-  --color-white: #ffffff;
-  
-  --card-bg: var(--color-white);
-  --card-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  --card-shadow-hover: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  
-  --border-radius: 0.75rem;
-  --transition: all 0.3s ease;
+  --mint: #ffffff;
+  --violet: #ffffff;
+  --bg-dark: #0d0d0f;
+  --bg-card: #141419;
+  --text-light: #eaeaea;
+  --radius: 14px;
+  --shadow-neon: 0 0 15px var(--mint), 0 0 30px var(--violet);
+  --transition: 0.3s ease;
 }
 
-/* ------------------- Темная тема ------------------- */
-.dark-theme {
-  --color-main: #1a1d23;
-  --color-accent: #4dabf7;
-  --color-light: #2d3748;
-  --color-dark: #4a5568;
-  --color-text: #e2e8f0;
-  --color-white: #2d3748;
-  
-  --card-bg: #2d3748;
-  --card-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
-  --card-shadow-hover: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
-}
-
-/* ------------------- Базовые стили ------------------- */
 * {
-  transition: var(--transition);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background-color: var(--color-light);
-  color: var(--color-text);
+  background: radial-gradient(circle at top left, #0f0f10 0%, #000 100%);
+  color: var(--text-light);
   line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
-/* ------------------- Кастомные стили для Bootstrap ------------------- */
-
-/* Header */
-.header-custom {
-  background: linear-gradient(135deg, var(--color-main) 0%, var(--color-dark) 100%) !important;
-  border-bottom: 3px solid var(--color-accent);
-}
-
-/* Navigation */
-.navbar-dark.bg-dark {
-  background-color: var(--color-dark) !important;
-}
-
-.nav-link {
-  border-radius: 0.375rem;
-  margin: 0 0.125rem;
-  transition: var(--transition) !important;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  background-color: var(--color-accent) !important;
-  transform: translateY(-1px);
-}
-
-/* Кнопка темы */
-.theme-toggle {
-  border: 2px solid currentColor;
-  border-radius: 2rem;
-  padding: 0.375rem 1rem;
-  font-weight: 500;
-  transition: var(--transition) !important;
-}
-
-.theme-toggle:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
-}
-
-.dark-theme .theme-toggle {
-  border-color: #f8f9fa;
-  color: #f8f9fa;
-}
-
-.dark-theme .theme-toggle:hover {
-  background-color: #f8f9fa;
-  color: var(--color-dark);
-}
-
-/* Profile Section */
-.profile-section {
-  animation: fadeInUp 0.8s ease-out;
-}
-
-.profile-card {
-  border: none;
-  border-radius: var(--border-radius);
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow);
-  transition: var(--transition);
-}
-
-.profile-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--card-shadow-hover);
-}
-
-.profile-photo {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border: 4px solid var(--color-accent);
-  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-  transition: var(--transition);
-}
-
-.profile-photo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
-}
-
-/* About Section */
-.about-section {
-  animation: fadeInUp 0.8s ease-out 0.2s both;
-}
-
-.about-section .card {
-  border: none;
-  border-radius: var(--border-radius);
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow);
-}
-
-.about-section .card-header {
-  background: transparent !important;
-  border-bottom: 2px solid var(--color-accent);
-  font-weight: 600;
-}
-
-/* Skills Section */
-.skills-section {
-  animation: fadeInUp 0.8s ease-out 0.4s both;
-}
-
-.skills-section .card {
-  border: none;
-  border-radius: var(--border-radius);
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow);
-}
-
-.skills-section .card-header {
-  background: transparent !important;
-  border-bottom: 2px solid var(--color-accent);
-  font-weight: 600;
-}
-
-.skills-section .progress {
-  height: 8px;
-  border-radius: 1rem;
-  background-color: var(--color-light);
-  overflow: hidden;
-}
-
-.skills-section .progress-bar {
-  border-radius: 1rem;
-  transition: width 1.5s ease-in-out;
+/* ===== Хедер ===== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, var(--mint), var(--violet));
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000;
+  box-shadow: 0 0 20px var(--mint);
   position: relative;
   overflow: hidden;
 }
 
-.skills-section .progress-bar::after {
+.header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { transform: rotate(45deg) translateX(-100%); }
+  100% { transform: rotate(45deg) translateX(100%); }
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.header__icon {
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0 0 10px #000);
+}
+
+.header__logo {
+  font-size: 2rem;
+  font-weight: 900;
+  text-shadow: 2px 2px 0 #000;
+}
+
+/* ===== Навигация ===== */
+.nav {
+  background: var(--bg-card);
+  box-shadow: inset 0 -2px 0 var(--violet);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.nav__item {
+  margin: 0;
+  position: relative;
+}
+
+.nav__item a {
+  color: var(--mint);
+  text-decoration: none;
+  padding: 20px 25px;
+  display: block;
+  transition: var(--transition);
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav__item a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: var(--violet);
+  transition: var(--transition);
+  transform: translateX(-50%);
+}
+
+.nav__item a:hover::before {
+  width: 80%;
+}
+
+.nav__item a:hover {
+  color: var(--violet);
+  text-shadow: 0 0 15px var(--violet);
+  background: rgba(255,255,255,0.05);
+}
+
+.nav__item--active a {
+  color: var(--violet);
+  text-shadow: 0 0 15px var(--mint);
+}
+
+.nav__item--active a::before {
+  width: 80%;
+  box-shadow: 0 0 10px var(--mint);
+}
+
+/* ===== Основной контент ===== */
+.main {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* ===== Профиль ===== */
+/* ===== Профиль ===== */
+.profile__card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 40px;
+  box-shadow: var(--shadow-neon);
+  position: relative;
+  overflow: hidden;
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 20px var(--mint), 0 0 40px var(--violet);
+  }
+  100% {
+    box-shadow: 0 0 30px var(--violet), 0 0 60px var(--mint);
+  }
+}
+
+.profile__photo-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.profile__photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 40px var(--mint);
+  transition: var(--transition);
+  border: 3px solid var(--mint);
+  flex-shrink: 0;
+  /* Фон и маска убраны, чтобы фото точно показывалось */
+}
+
+.profile__photo-wrap:hover .profile__photo {
+  box-shadow: 0 0 60px var(--violet);
+  transform: scale(1.05) rotate(5deg);
+}
+
+.profile__info {
+  flex: 1;
+}
+
+.profile__name {
+  font-size: 2.2rem;
+  color: var(--mint);
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px var(--mint);
+}
+
+.profile__group {
+  color: var(--violet);
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  text-shadow: 0 0 5px var(--violet);
+}
+
+.profile__desc {
+  margin: 20px 0;
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--mint), var(--violet));
+  color: #000;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: var(--transition);
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  filter: brightness(1.2);
+  box-shadow: var(--shadow-neon);
+  transform: translateY(-2px);
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 768px) {
+  .profile__card {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+    padding: 30px 20px;
+  }
+
+  .profile__photo {
+    width: 180px;
+    height: 180px;
+  }
+
+  .profile__name {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile__card {
+    padding: 20px 15px;
+  }
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--mint), var(--violet));
+  color: #000;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: var(--transition);
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  filter: brightness(1.2);
+  box-shadow: var(--shadow-neon);
+  transform: translateY(-2px);
+}
+
+/* ===== Навыки ===== */
+.skills {
+  margin-top: 60px;
+}
+
+.section__title {
+  font-size: 2rem;
+  margin: 50px 0 30px;
+  color: var(--mint);
+  text-shadow: 0 0 15px var(--violet);
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section__title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--mint), var(--violet));
+  box-shadow: 0 0 10px var(--mint);
+}
+
+.skill {
+  margin-bottom: 25px;
+}
+
+.skill__name {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--mint);
+  text-shadow: 0 0 5px var(--mint);
+}
+
+.skill__bar {
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  height: 12px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.skill__bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--mint), var(--violet));
+  border-radius: 10px;
+  box-shadow: 0 0 15px var(--mint);
+  transition: width 1s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill__bar span::after {
   content: '';
   position: absolute;
   top: 0;
@@ -190,218 +393,187 @@ body {
   100% { left: 100%; }
 }
 
-/* Projects Section */
-.projects-section {
-  animation: fadeInUp 0.8s ease-out 0.6s both;
+/* ===== Проекты ===== */
+.projects {
+  margin-top: 60px;
 }
 
-.projects-section .card {
-  border: none;
-  border-radius: var(--border-radius);
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow);
-}
-
-.projects-section .card-header {
-  background: transparent !important;
-  border-bottom: 2px solid var(--color-accent);
-  font-weight: 600;
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
 }
 
 .project-card {
-  border: none;
-  border-radius: var(--border-radius);
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow);
-  transition: var(--transition);
+  background: var(--bg-card);
+  border-radius: var(--radius);
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 20px #000;
+  position: relative;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mint), var(--violet));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover::before {
+  transform: scaleX(1);
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: var(--shadow-neon);
 }
 
-.project-image {
+.project-card__img {
+  width: 100%;
   height: 200px;
   object-fit: cover;
   transition: var(--transition);
 }
 
-.project-card:hover .project-image {
-  transform: scale(1.05);
+.project-card:hover .project-card__img {
+  transform: scale(1.1);
 }
 
-.project-card .card-body {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.project-card__info {
+  padding: 20px;
+  position: relative;
+  z-index: 2;
 }
 
-.project-card .card-text {
-  flex-grow: 1;
+.project-card__title {
+  color: var(--mint);
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  text-shadow: 0 0 5px var(--mint);
 }
 
-/* Бейджи */
-.badge {
-  font-size: 0.75em;
-  font-weight: 500;
-  padding: 0.375em 0.75em;
-  border-radius: 1rem;
-  transition: var(--transition);
+.project-card__desc {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
-.badge:hover {
-  transform: scale(1.05);
+/* ===== Подвал ===== */
+.footer {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 80px;
+  background: #0b0b0c;
+  font-size: 1rem;
+  border-top: 1px solid var(--violet);
+  color: var(--mint);
+  box-shadow: 0 -2px 30px var(--violet);
+  position: relative;
 }
 
-/* Footer */
-.footer-custom {
-  background: linear-gradient(135deg, var(--color-main) 0%, var(--color-dark) 100%) !important;
-  border-top: 3px solid var(--color-accent);
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--mint), transparent);
+  box-shadow: 0 0 10px var(--mint);
 }
 
-.social-links a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: var(--transition);
-  text-decoration: none;
-}
-
-.social-links a:hover {
-  background-color: var(--color-accent);
-  transform: translateY(-2px);
-  color: white !important;
-}
-
-/* ------------------- Анимации ------------------- */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Постепенное появление секций */
-.profile-section { animation-delay: 0.1s; }
-.about-section { animation-delay: 0.3s; }
-.skills-section { animation-delay: 0.5s; }
-.projects-section { animation-delay: 0.7s; }
-
-/* ------------------- Адаптивность ------------------- */
+/* ===== Адаптивность ===== */
 @media (max-width: 768px) {
-  .profile-photo {
-    width: 120px;
-    height: 120px;
+  .profile__card {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+    padding: 30px 20px;
   }
   
-  .project-image {
-    height: 150px;
+  .profile__photo {
+    width: 180px;
+    height: 180px;
   }
   
-  .theme-toggle {
-    margin-top: 1rem;
-    width: 100%;
+  .nav__list {
+    justify-content: space-around;
   }
   
-  .navbar-nav {
+  .nav__item a {
+    padding: 15px 10px;
+    font-size: 0.9rem;
+  }
+  
+  .projects__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .header__logo {
+    font-size: 1.5rem;
+  }
+  
+  .profile__name {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 0 15px;
+  }
+  
+  .profile__card {
+    padding: 20px 15px;
+  }
+  
+  .section__title {
+    font-size: 1.6rem;
+  }
+  
+  .nav__item {
+    flex: 1;
     text-align: center;
   }
   
-  .nav-link {
-    margin: 0.125rem 0;
+  .nav__item a {
+    padding: 12px 5px;
+    font-size: 0.85rem;
   }
 }
 
-@media (max-width: 576px) {
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  .profile-photo {
-    width: 100px;
-    height: 100px;
-  }
-  
-  h1 { font-size: 1.5rem !important; }
-  h2 { font-size: 1.25rem !important; }
-  h3 { font-size: 1.1rem !important; }
-}
-
-/* ------------------- Улучшения для темной темы ------------------- */
-.dark-theme .card {
-  background-color: var(--card-bg);
-  color: var(--color-text);
-}
-
-.dark-theme .bg-light {
-  background-color: var(--color-dark) !important;
-  color: var(--color-text);
-}
-
-.dark-theme .text-muted {
-  color: #a0aec0 !important;
-}
-
-.dark-theme .card-header.bg-light {
-  background-color: var(--color-dark) !important;
-  border-bottom-color: var(--color-accent);
-}
-
-.dark-theme .progress {
-  background-color: #4a5568;
-}
-
-/* Плавное переключение темы */
-body {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* ------------------- Дополнительные эффекты ------------------- */
-/* Подсветка при скролле */
-.progress-bar {
-  animation: slideIn 1.5s ease-out;
-}
-
-@keyframes slideIn {
-  from {
-    width: 0% !important;
-  }
-}
-
-/* Микро-анимации для интерактивных элементов */
-.btn, .nav-link, .badge, .project-card {
-  transition: var(--transition);
-}
-
-/* Улучшение читаемости */
-.card-text {
-  text-align: justify;
-}
-
-/* Кастомный скроллбар */
+/* ===== Скроллбар ===== */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-light);
+  background: var(--bg-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-accent);
+  background: linear-gradient(var(--mint), var(--violet));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2980b9;
+  box-shadow: 0 0 10px var(--mint);
+}
+/* Жёсткий фикс для фото */
+.profile__photo {
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  box-shadow: 0 0 40px #ffffff !important;
+  border: 3px solid #ffffff !important;
+  flex-shrink: 0 !important;
 }

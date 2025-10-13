@@ -1,161 +1,425 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Практики</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <style>
-        .dark-theme {
-            --bs-body-bg: #1a1d23;
-            --bs-body-color: #e2e8f0;
-        }
-        .dark-theme body {
-            background-color: var(--bs-body-bg);
-            color: var(--bs-body-color);
-        }
-        .dark-theme .card {
-            background-color: #2d3748;
-        }
-        .link-card {
-            transition: all 0.3s ease;
-            border: none;
-            border-radius: 15px;
-        }
-        .link-card:hover {
-            transform: translateY(-3px);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мои проекты | GGM </title>
+  <link rel="stylesheet" href="../style/styles.css" />
 </head>
-<body class="bg-light">
-    <div class="container-fluid p-0">
-        <!-- Header -->
-        <header class="bg-primary text-white py-4">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h1 class="h3 mb-0">Практики</h1>
-                    </div>
-                    <div class="col-auto">
-                        <button id="theme-toggle" class="btn btn-outline-light">
-                            <i class="bi bi-moon"></i> Тёмная тема
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.html">
-                                <i class="bi bi-house me-1"></i>Главная
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="news.html">
-                                <i class="bi bi-newspaper me-1"></i>Новости
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="goods.html">
-                                <i class="bi bi-cart me-1"></i>Товары
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contacts.html">
-                                <i class="bi bi-telephone me-1"></i>Контакты
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="practices.html">
-                                <i class="bi bi-code-slash me-1"></i>Практики
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Main Content -->
-        <main class="container my-5">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <!-- GitHub -->
-                    <div class="card link-card shadow-sm mb-4">
-                        <div class="card-body text-center">
-                            <i class="bi bi-github display-4 text-dark mb-3"></i>
-                            <h3>GitHub</h3>
-                            <a href="https://github.com/glebgaponov" target="_blank" class="btn btn-dark btn-lg">
-                                <i class="bi bi-box-arrow-up-right me-2"></i>Перейти
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Telegram -->
-                    <div class="card link-card shadow-sm mb-4">
-                        <div class="card-body text-center">
-                            <i class="bi bi-telegram display-4 text-primary mb-3"></i>
-                            <h3>Telegram</h3>
-                            <a href="https://t.me/mazdex" target="_blank" class="btn btn-primary btn-lg">
-                                <i class="bi bi-send me-2"></i>Написать
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Steam -->
-                    <div class="card link-card shadow-sm">
-                        <div class="card-body text-center">
-                            <i class="bi bi-controller display-4 text-info mb-3"></i>
-                            <h3>Steam</h3>
-                            <a href="https://steamcommunity.com/profiles/76561199448147965/" target="_blank" class="btn btn-info btn-lg text-white">
-                                <i class="bi bi-joystick me-2"></i>Профиль
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="bg-dark text-white py-4 mt-5">
-            <div class="container text-center">
-                <p class="mb-0">&copy; 2025 frontend-and-backend-development. Все права защищены.</p>
-            </div>
-        </footer>
+<body class="page">
+  <header class="header">
+    <div class="header__left">
+      <img src="../images/logo.svg" alt="Логотип" class="header__icon">
+      <h1 class="header__logo">GGM</h1>
     </div>
+  </header>
 
-    <!-- JavaScript для темы -->
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
+  <nav class="nav">
+    <ul class="nav__list">
+      <li class="nav__item"><a href="../index.html">Главная</a></li>
+      <li class="nav__item nav__item--active"><a href="practices.html">Проекты</a></li>
+      <li class="nav__item"><a href="news.html">Дневник</a></li>
+      <li class="nav__item"><a href="contacts.html">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <main class="main">
+    <section class="projects-page">
+      <div class="projects-header">
+        <h2 class="section__title">Мои проекты</h2>
+        <p class="projects-subtitle">Полная коллекция учебных и личных работ</p>
         
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-theme');
-            const isDark = document.body.classList.contains('dark-theme');
-            
-            themeToggle.innerHTML = isDark 
-                ? '<i class="bi bi-sun"></i> Светлая тема' 
-                : '<i class="bi bi-moon"></i> Тёмная тема';
-                
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
+        <div class="projects-filters">
+          <button class="filter-btn filter-btn--active" data-filter="all">Все</button>
+          <button class="filter-btn" data-filter="html">HTML/CSS</button>
+          <button class="filter-btn" data-filter="js">JavaScript</button>
+          <button class="filter-btn" data-filter="react">React</button>
+        </div>
+      </div>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-theme');
-                themeToggle.innerHTML = '<i class="bi bi-sun"></i> Светлая тема';
-            }
-        });
-    </script>
+      <div class="projects-grid-extended">
+        <!-- Проект 1 -->
+        <div class="project-card-extended" data-tech="html css">
+          <div class="project-card__image">
+            <img src="../images/project1.jpg" alt="Личный сайт" class="project-card__img" />
+            <div class="project-card__overlay">
+              <button class="project-card__view-btn">Посмотреть проект</button>
+            </div>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Личный сайт</h3>
+            <p class="project-card__desc">Адаптивный лендинг с современным дизайном</p>
+            <div class="project-card__tech">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Проект 2 -->
+        <div class="project-card-extended" data-tech="js">
+          <div class="project-card__image">
+            <img src="../images/project2.jpg" alt="Todo-приложение" class="project-card__img" />
+            <div class="project-card__overlay">
+              <button class="project-card__view-btn">Посмотреть проект</button>
+            </div>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Todo-приложение</h3>
+            <p class="project-card__desc">Менеджер задач с локальным хранилищем</p>
+            <div class="project-card__tech">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">LocalStorage</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Проект 3 -->
+        <div class="project-card-extended" data-tech="react">
+          <div class="project-card__image">
+            <img src="../images/project3.jpg" alt="Интернет-магазин" class="project-card__img" />
+            <div class="project-card__overlay">
+              <button class="project-card__view-btn">Посмотреть проект</button>
+            </div>
+          </div>
+          <div class="project-card__content">
+            <h3 class="project-card__title">Интернет-магазин</h3>
+            <p class="project-card__desc">E-commerce платформа с корзиной покупок</p>
+            <div class="project-card__tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Redux</span>
+              <span class="tech-tag">API</span>
+            </div>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <!-- Модальное окно -->
+  <div class="modal" id="projectModal">
+    <div class="modal__content">
+      <button class="modal__close">&times;</button>
+      <div class="modal__body">
+        <div class="modal__image">
+          <img src="" alt="" id="modalImage" />
+        </div>
+        <div class="modal__info">
+          <h3 id="modalTitle"></h3>
+          <p id="modalDesc"></p>
+          <div class="modal__tech" id="modalTech"></div>
+          <div class="modal__links">
+            <a href="#" class="btn" id="modalLive">Живая версия</a>
+            <a href="#" class="btn btn--outline" id="modalSource">Исходный код</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 GGM | Создано с 🍻</p>
+  </footer>
+
+  <script>
+    // Фильтрация проектов
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Убрать активный класс у всех кнопок
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('filter-btn--active'));
+        // Добавить активный класс текущей кнопке
+        this.classList.add('filter-btn--active');
+        
+        const filter = this.dataset.filter;
+        const projects = document.querySelectorAll('.project-card-extended');
+        
+        projects.forEach(project => {
+          if (filter === 'all' || project.dataset.tech.includes(filter)) {
+            project.style.display = 'block';
+          } else {
+            project.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Модальное окно
+    const modal = document.getElementById('projectModal');
+    const closeBtn = document.querySelector('.modal__close');
+    
+    document.querySelectorAll('.project-card__view-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = this.closest('.project-card-extended');
+        const title = card.querySelector('.project-card__title').textContent;
+        const desc = card.querySelector('.project-card__desc').textContent;
+        const img = card.querySelector('.project-card__img').src;
+        
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalDesc').textContent = desc;
+        document.getElementById('modalImage').src = img;
+        
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+
+  <style>
+    .projects-page {
+      padding: 20px 0;
+    }
+
+    .projects-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .projects-subtitle {
+      color: #ccc;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .projects-filters {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .filter-btn {
+      background: var(--bg-card);
+      color: var(--mint);
+      border: 2px solid transparent;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 600;
+    }
+
+    .filter-btn:hover,
+    .filter-btn--active {
+      background: linear-gradient(90deg, var(--mint), var(--violet));
+      color: #000;
+      box-shadow: var(--shadow-neon);
+    }
+
+    .projects-grid-extended {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card-extended {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: 0 0 20px #000;
+    }
+
+    .project-card-extended:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-neon);
+    }
+
+    .project-card__image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card__img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .project-card-extended:hover .project-card__img {
+      transform: scale(1.1);
+    }
+
+    .project-card__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .project-card-extended:hover .project-card__overlay {
+      opacity: 1;
+    }
+
+    .project-card__view-btn {
+      background: linear-gradient(90deg, var(--mint), var(--violet));
+      color: #000;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: var(--transition);
+    }
+
+    .project-card__view-btn:hover {
+      transform: scale(1.1);
+      box-shadow: var(--shadow-neon);
+    }
+
+    .project-card__content {
+      padding: 20px;
+    }
+
+    .project-card__title {
+      color: var(--mint);
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .project-card__desc {
+      color: #ccc;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .project-card__tech {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tech-tag {
+      background: rgba(255,255,255,0.1);
+      color: var(--mint);
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      border: 1px solid var(--mint);
+    }
+
+    /* Модальное окно */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal__content {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: var(--shadow-neon);
+    }
+
+    .modal__close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: var(--mint);
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 1001;
+      transition: var(--transition);
+    }
+
+    .modal__close:hover {
+      color: var(--violet);
+      text-shadow: 0 0 10px var(--violet);
+    }
+
+    .modal__body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 40px;
+    }
+
+    .modal__image img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 0 20px #000;
+    }
+
+    .modal__info h3 {
+      color: var(--mint);
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .modal__info p {
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .modal__links {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--mint);
+      border: 2px solid var(--mint);
+    }
+
+    .btn--outline:hover {
+      background: var(--mint);
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .projects-grid-extended {
+        grid-template-columns: 1fr;
+      }
+      
+      .modal__body {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+      
+      .projects-filters {
+        gap: 10px;
+      }
+      
+      .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </body>
 </html>

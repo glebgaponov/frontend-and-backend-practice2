@@ -1,238 +1,565 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакты</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <style>
-        .contact-card {
-            transition: all 0.3s ease;
-            border: none;
-            border-radius: 15px;
-        }
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .contact-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        .joke-text {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Контакты |GGM </title>
+  <link rel="stylesheet" href="../style/styles.css" />
 </head>
-<body class="bg-light">
-    <div class="container-fluid p-0">
-        <!-- Header -->
-        <header class="bg-primary text-white py-4">
-            <div class="container text-center">
-                <h1 class="h3 mb-2">Тут вы можете связаться с нами</h1>
-                <p class="mb-0 joke-text">(лучше не связываться) 😨</p>
-            </div>
-        </header>
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.html">
-                                <i class="bi bi-house me-1"></i>Главная
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="news.html">
-                                <i class="bi bi-newspaper me-1"></i>Новости
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="goods.html">
-                                <i class="bi bi-cart me-1"></i>Товары
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="contacts.html">
-                                <i class="bi bi-telephone me-1"></i>Контакты
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Main Content -->
-        <main class="container my-5">
-            <!-- Page Header -->
-            <div class="row mb-5">
-                <div class="col-12 text-center">
-                    <h2 class="text-primary mb-4">Наши контакты</h2>
-                </div>
-            </div>
-
-            <!-- Contact Cards -->
-            <div class="row g-4">
-                <!-- Email -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="card contact-card h-100 shadow-sm text-center">
-                        <div class="card-body">
-                            <div class="contact-icon text-primary">
-                                <i class="bi bi-envelope"></i>
-                            </div>
-                            <h5 class="card-title">Email</h5>
-                            <p class="card-text">
-                                <strong>glebdremin@mail.ru</strong>
-                            </p>
-                            <small class="text-muted">Отвечаем в течение 24 часов</small>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Address -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="card contact-card h-100 shadow-sm text-center">
-                        <div class="card-body">
-                            <div class="contact-icon text-success">
-                                <i class="bi bi-geo-alt"></i>
-                            </div>
-                            <h5 class="card-title">Адрес</h5>
-                            <p class="card-text">
-                                <strong>г. Москва ул. Сонная д. 55</strong>
-                            </p>
-                            <small class="text-muted">Приезжайте в гости!</small>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Social Media -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="card contact-card h-100 shadow-sm text-center">
-                        <div class="card-body">
-                            <div class="contact-icon text-info">
-                                <i class="bi bi-people"></i>
-                            </div>
-                            <h5 class="card-title">Соцсети</h5>
-                            <p class="card-text">
-                                <strong>TG, VK?</strong>
-                            </p>
-                            <div class="mt-2">
-                                <a href="#" class="btn btn-outline-primary btn-sm me-1"><i class="bi bi-telegram"></i></a>
-                                <a href="#" class="btn btn-outline-primary btn-sm"><i class="bi bi-vimeo"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Phone -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="card contact-card h-100 shadow-sm text-center">
-                        <div class="card-body">
-                            <div class="contact-icon text-warning">
-                                <i class="bi bi-phone"></i>
-                            </div>
-                            <h5 class="card-title">Телефон</h5>
-                            <p class="card-text">
-                                <strong>+7 (495) 123-45-67</strong>
-                            </p>
-                            <small class="text-muted">Пн-Пт с 9:00 до 18:00</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Button -->
-            <div class="row mt-5">
-                <div class="col-12 text-center">
-                    <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#contactModal">
-                        <i class="bi bi-chat-dots me-2"></i>Связаться с нами
-                    </button>
-                </div>
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="bg-dark text-white py-4 mt-5">
-            <div class="container text-center">
-                <p class="mb-0">&copy; 2025 frontend-and-backend-development. Все права защищены.</p>
-            </div>
-        </footer>
+<body class="page">
+  <header class="header">
+    <div class="header__left">
+      <img src="../images/logo.svg" alt="Логотип" class="header__icon">
+      <h1 class="header__logo">GGM</h1>
     </div>
+  </header>
 
-    <!-- Bootstrap Modal -->
-    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="contactModalLabel">Обратная связь</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="contactForm">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Имя:</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Телефон:</label>
-                            <input type="tel" class="form-control" id="phone" name="phone" required>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Почта:</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="category" class="form-label">Категория:</label>
-                            <select class="form-select" id="category" name="category">
-                                <option value="вопрос">Вопрос</option>
-                                <option value="пожелание">Пожелание</option>
-                                <option value="жалоба">Жалоба</option>
-                            </select>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Текст обращения:</label>
-                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-                        </div>
-                        
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="bi bi-send me-2"></i>Отправить
-                            </button>
-                        </div>
-                    </form>
-                </div>
+  <nav class="nav">
+    <ul class="nav__list">
+      <li class="nav__item"><a href="../index.html">Главная</a></li>
+      <li class="nav__item"><a href="practices.html">Проекты</a></li>
+      <li class="nav__item"><a href="news.html">Дневник</a></li>
+      <li class="nav__item nav__item--active"><a href="contacts.html">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <main class="main">
+    <!-- Заголовок -->
+    <section class="contacts-header">
+      <h2 class="section__title">Свяжитесь со мной</h2>
+      <p class="contacts-subtitle">Готов к сотрудничеству и новым вызовам</p>
+    </section>
+
+    <!-- Основной контент -->
+    <div class="contacts-layout">
+      <!-- Левая колонка - Форма -->
+      <section class="contact-form-section">
+        <h3 class="contacts-section-title">Отправить сообщение</h3>
+        
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name" class="form-label">Имя</label>
+            <input type="text" id="name" class="form-input" placeholder="Ваше имя" required>
+            <span class="form-error" id="nameError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+            <span class="form-error" id="emailError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="subject" class="form-label">Тема</label>
+            <input type="text" id="subject" class="form-input" placeholder="Тема сообщения" required>
+            <span class="form-error" id="subjectError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Сообщение</label>
+            <textarea id="message" class="form-textarea" placeholder="Ваше сообщение..." rows="6" required></textarea>
+            <span class="form-error" id="messageError"></span>
+          </div>
+
+          <button type="submit" class="btn btn--full btn--large">
+            <span class="btn-text">Отправить сообщение</span>
+            <span class="btn-loading">Отправка...</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- Правая колонка - Контакты и карта -->
+      <div class="contacts-sidebar">
+        <!-- Контактная информация -->
+        <section class="contact-info">
+          <h3 class="contacts-section-title">Мои контакты</h3>
+          
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div class="contact-details">
+                <div class="contact-label">Email</div>
+                <a href="mailto:student@edu.ru" class="contact-value">glebdremin@mail.ru</a>
+              </div>
             </div>
-        </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📱</div>
+              <div class="contact-details">
+                <div class="contact-label">GitHub</div>
+                <a href="https://github.com/glebgaponov" target="_blank" class="contact-value">github.com/glebgaponov</a>
+              </div>
+            </div>
+
+
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div class="contact-details">
+                <div class="contact-label">Телеграм</div>
+                <a href="https://t.me/mazdex" target="_blank" class="contact-value">@mazdex</a>
+              </div>
+            </div>
+        </section>
+
+        <!-- Карта -->
+        <section class="contact-map">
+          <h3 class="contacts-section-title">Мое местоположение</h3>
+          <div class="map-container">
+            <div class="static-map">
+              <div class="map-placeholder">
+                <div class="map-marker">📍</div>
+                <div class="map-text">Moscow, Russia</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Время ответа -->
+        <section class="response-time">
+          <h3 class="contacts-section-title">Время ответа</h3>
+          <div class="response-card">
+            <div class="response-icon">⚡</div>
+            <div class="response-info">
+              <div class="response-title">Быстрый ответ</div>
+              <div class="response-desc">Отвечаю в течение 24 часов</div>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
+  </main>
 
-    <script>
-        // Обработка формы
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Здесь можно добавить отправку формы
-            alert('Сообщение отправлено! Мы свяжемся с вами в ближайшее время.');
-            
-            // Закрываем модальное окно
-            const modal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
-            modal.hide();
-            
-            // Очищаем форму
-            this.reset();
-        });
-    </script>
+  <footer class="footer">
+    <p>© 2025 GGM | Создано с 🍻</p>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .contacts-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .contacts-subtitle {
+      color: #ccc;
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    .contacts-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .contacts-section-title {
+      color: var(--mint);
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px var(--mint);
+      border-bottom: 2px solid var(--violet);
+      padding-bottom: 8px;
+    }
+
+    /* Форма */
+    .contact-form-section {
+      background: var(--bg-card);
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: 0 0 30px #000;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-label {
+      color: var(--mint);
+      margin-bottom: 8px;
+      font-weight: 600;
+      text-shadow: 0 0 5px var(--mint);
+    }
+
+    .form-input,
+    .form-textarea {
+      padding: 15px;
+      background: rgba(255,255,255,0.1);
+      border: 2px solid transparent;
+      border-radius: 8px;
+      color: var(--text-light);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--violet);
+      box-shadow: 0 0 15px var(--mint);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .form-input:valid {
+      border-color: #00ff00;
+    }
+
+    .form-input:invalid:not(:focus):not(:placeholder-shown) {
+      border-color: #ff4444;
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+      font-family: inherit;
+    }
+
+    .form-error {
+      color: #ff4444;
+      font-size: 0.8rem;
+      margin-top: 5px;
+      min-height: 15px;
+      text-shadow: 0 0 5px #ff4444;
+    }
+
+    .btn--full {
+      width: 100%;
+    }
+
+    .btn--large {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+    }
+
+    .btn-loading {
+      display: none;
+    }
+
+    .btn.sending .btn-text {
+      display: none;
+    }
+
+    .btn.sending .btn-loading {
+      display: inline;
+    }
+
+    /* Контактная информация */
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 15px;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      transition: var(--transition);
+      border-left: 3px solid transparent;
+    }
+
+    .contact-item:hover {
+      transform: translateX(10px);
+      border-left-color: var(--violet);
+      box-shadow: var(--shadow-neon);
+    }
+
+    .contact-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-details {
+      flex: 1;
+    }
+
+    .contact-label {
+      color: var(--mint);
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
+    .contact-value {
+      color: #ccc;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .contact-value:hover {
+      color: var(--violet);
+      text-shadow: 0 0 10px var(--violet);
+    }
+
+    /* Карта */
+    .map-container {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 0 20px #000;
+    }
+
+    .static-map {
+      height: 200px;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .map-placeholder {
+      text-align: center;
+    }
+
+    .map-marker {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      animation: pulse 2s infinite;
+    }
+
+    .map-text {
+      color: var(--mint);
+      font-weight: 600;
+      text-shadow: 0 0 10px var(--mint);
+    }
+
+    /* Время ответа */
+    .response-card {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 20px;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: 0 0 20px #000;
+      transition: var(--transition);
+    }
+
+    .response-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-neon);
+    }
+
+    .response-icon {
+      font-size: 2rem;
+    }
+
+    .response-title {
+      color: var(--mint);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .response-desc {
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    /* Социальные сети */
+    .social-section {
+      margin-top: 40px;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .social-card {
+      display: block;
+      background: var(--bg-card);
+      padding: 25px 20px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      text-align: center;
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+
+    .social-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--violet);
+      box-shadow: var(--shadow-neon);
+    }
+
+    .social-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .social-name {
+      color: var(--mint);
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    .social-desc {
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    /* Анимации */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    .shake {
+      animation: shake 0.5s ease-in-out;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 968px) {
+      .contacts-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-form-section {
+        padding: 20px;
+      }
+      
+      .social-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-item {
+        padding: 12px;
+      }
+    }
+  </style>
+
+  <script>
+    // Валидация формы
+    const contactForm = document.getElementById('contactForm');
+    const inputs = contactForm.querySelectorAll('input, textarea');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    // Функции валидации
+    const validators = {
+      name: (value) => {
+        if (!value.trim()) return 'Имя обязательно';
+        if (value.length < 2) return 'Имя слишком короткое';
+        return '';
+      },
+      
+      email: (value) => {
+        if (!value.trim()) return 'Email обязателен';
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) return 'Неверный формат email';
+        return '';
+      },
+      
+      subject: (value) => {
+        if (!value.trim()) return 'Тема обязательна';
+        if (value.length < 5) return 'Тема слишком короткая';
+        return '';
+      },
+      
+      message: (value) => {
+        if (!value.trim()) return 'Сообщение обязательно';
+        if (value.length < 10) return 'Сообщение слишком короткое';
+        return '';
+      }
+    };
+
+    // Валидация при вводе
+    inputs.forEach(input => {
+      input.addEventListener('blur', () => validateField(input));
+      input.addEventListener('input', () => clearError(input));
+    });
+
+    function validateField(field) {
+      const errorElement = document.getElementById(field.id + 'Error');
+      const error = validators[field.id](field.value);
+      
+      if (error) {
+        field.classList.add('shake');
+        errorElement.textContent = error;
+        setTimeout(() => field.classList.remove('shake'), 500);
+      } else {
+        errorElement.textContent = '';
+      }
+    }
+
+    function clearError(field) {
+      const errorElement = document.getElementById(field.id + 'Error');
+      errorElement.textContent = '';
+    }
+
+    // Отправка формы
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Валидация всех полей
+      let isValid = true;
+      inputs.forEach(input => {
+        validateField(input);
+        if (document.getElementById(input.id + 'Error').textContent) {
+          isValid = false;
+        }
+      });
+      
+      if (!isValid) {
+        alert('Пожалуйста, исправьте ошибки в форме');
+        return;
+      }
+      
+      // Имитация отправки
+      submitBtn.classList.add('sending');
+      submitBtn.disabled = true;
+      
+      // Имитация задержки сети
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // Успешная отправка
+      alert('Сообщение успешно отправлено! Я свяжусь с вами в ближайшее время.');
+      contactForm.reset();
+      
+      submitBtn.classList.remove('sending');
+      submitBtn.disabled = false;
+    });
+
+    // Анимация появления элементов
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.contact-item, .social-card, .response-card');
+      
+      animatedElements.forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+          el.style.transition = 'all 0.6s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, index * 100);
+      });
+    });
+  </script>
 </body>
 </html>
