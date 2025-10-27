@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Контакты |GGM </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Контакты | GGM</title>
   <link rel="stylesheet" href="../style/styles.css" />
 </head>
 <body class="page">
@@ -14,51 +14,55 @@
     </div>
   </header>
 
-  <nav class="nav">
+  <nav class="nav" aria-label="Основная навигация">
     <ul class="nav__list">
-      <li class="nav__item"><a href="../index.html">Главная</a></li>
-      <li class="nav__item"><a href="practices.html">Проекты</a></li>
-      <li class="nav__item"><a href="news.html">Дневник</a></li>
-      <li class="nav__item nav__item--active"><a href="contacts.html">Контакты</a></li>
+      <body class="page">
+        <a class="skip-link" href="#main">⤵️</a>
+      <li class="nav__item"><a href="../index.html" class="nav__link">Главная</a></li>
+      <li class="nav__item"><a href="practices.html" class="nav__link">Проекты</a></li>
+      <li class="nav__item"><a href="news.html" class="nav__link">Дневник</a></li>
+      <li class="nav__item nav__item--active"><a href="contacts.html" class="nav__link">Контакты</a></li>
     </ul>
   </nav>
 
-  <main class="main">
-    <!-- Заголовок -->
+  <main id="main" class="main">
     <section class="contacts-header">
       <h2 class="section__title">Свяжитесь со мной</h2>
       <p class="contacts-subtitle">Готов к сотрудничеству и новым вызовам</p>
     </section>
 
-    <!-- Основной контент -->
     <div class="contacts-layout">
-      <!-- Левая колонка - Форма -->
       <section class="contact-form-section">
         <h3 class="contacts-section-title">Отправить сообщение</h3>
         
         <form class="contact-form" id="contactForm">
           <div class="form-group">
             <label for="name" class="form-label">Имя</label>
-            <input type="text" id="name" class="form-input" placeholder="Ваше имя" required>
-            <span class="form-error" id="nameError"></span>
+            <input type="text" id="name" class="form-input" placeholder="Ваше имя" required
+                   aria-describedby="nameError">
+            <span class="form-error visually-hidden" id="nameError" role="alert"></span>
           </div>
 
           <div class="form-group">
             <label for="email" class="form-label">Email</label>
-            <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
-            <span class="form-error" id="emailError"></span>
+            <input type="email" id="email" class="form-input" placeholder="your@email.com" required
+                   aria-describedby="emailError emailHint">
+            <span class="form-error visually-hidden" id="emailError" role="alert"></span>
+            <small class="visually-hidden" id="emailHint">Мы пришлём ответ на этот адрес</small>
           </div>
 
           <div class="form-group">
             <label for="subject" class="form-label">Тема</label>
-            <input type="text" id="subject" class="form-input" placeholder="Тема сообщения" required>
-            <span class="form-error" id="subjectError"></span>
+            <input type="text" id="subject" class="form-input" placeholder="Тема сообщения" required
+                   aria-describedby="subjectError">
+            <span class="form-error visually-hidden" id="subjectError" role="alert"></span>
           </div>
 
           <div class="form-group">
             <label for="message" class="form-label">Сообщение</label>
-            <textarea id="message" class="form-textarea" placeholder="Ваше сообщение..." rows="6" required></textarea>
-            <span class="form-error" id="messageError"></span>
+            <textarea id="message" class="form-textarea" placeholder="Ваше сообщение..." rows="6" required
+                      aria-describedby="messageError"></textarea>
+            <span class="form-error visually-hidden" id="messageError" role="alert"></span>
           </div>
 
           <button type="submit" class="btn btn--full btn--large">
@@ -68,9 +72,7 @@
         </form>
       </section>
 
-      <!-- Правая колонка - Контакты и карта -->
       <div class="contacts-sidebar">
-        <!-- Контактная информация -->
         <section class="contact-info">
           <h3 class="contacts-section-title">Мои контакты</h3>
           
@@ -79,7 +81,7 @@
               <div class="contact-icon">📧</div>
               <div class="contact-details">
                 <div class="contact-label">Email</div>
-                <a href="mailto:student@edu.ru" class="contact-value">glebdremin@mail.ru</a>
+                <a href="mailto:glebdremin@mail.ru" class="contact-value">glebdremin@mail.ru</a>
               </div>
             </div>
 
@@ -91,7 +93,6 @@
               </div>
             </div>
 
-
             <div class="contact-item">
               <div class="contact-icon">📞</div>
               <div class="contact-details">
@@ -99,9 +100,9 @@
                 <a href="https://t.me/mazdex" target="_blank" class="contact-value">@mazdex</a>
               </div>
             </div>
+          </div>
         </section>
 
-        <!-- Карта -->
         <section class="contact-map">
           <h3 class="contacts-section-title">Мое местоположение</h3>
           <div class="map-container">
@@ -114,7 +115,6 @@
           </div>
         </section>
 
-        <!-- Время ответа -->
         <section class="response-time">
           <h3 class="contacts-section-title">Время ответа</h3>
           <div class="response-card">
@@ -147,9 +147,15 @@
 
     .contacts-layout {
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 1fr;
       gap: 40px;
       margin-bottom: 60px;
+    }
+
+    @media (min-width: 768px) {
+      .contacts-layout {
+        grid-template-columns: 2fr 1fr;
+      }
     }
 
     .contacts-section-title {
@@ -161,7 +167,6 @@
       padding-bottom: 8px;
     }
 
-    /* Форма */
     .contact-form-section {
       background: var(--bg-card);
       padding: 30px;
@@ -206,14 +211,6 @@
       background: rgba(255,255,255,0.15);
     }
 
-    .form-input:valid {
-      border-color: #00ff00;
-    }
-
-    .form-input:invalid:not(:focus):not(:placeholder-shown) {
-      border-color: #ff4444;
-    }
-
     .form-textarea {
       resize: vertical;
       min-height: 120px;
@@ -249,7 +246,6 @@
       display: inline;
     }
 
-    /* Контактная информация */
     .contact-list {
       display: flex;
       flex-direction: column;
@@ -300,7 +296,6 @@
       text-shadow: 0 0 10px var(--violet);
     }
 
-    /* Карта */
     .map-container {
       background: var(--bg-card);
       border-radius: var(--radius);
@@ -333,7 +328,6 @@
       text-shadow: 0 0 10px var(--mint);
     }
 
-    /* Время ответа */
     .response-card {
       display: flex;
       align-items: center;
@@ -365,52 +359,6 @@
       font-size: 0.9rem;
     }
 
-    /* Социальные сети */
-    .social-section {
-      margin-top: 40px;
-    }
-
-    .social-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
-
-    .social-card {
-      display: block;
-      background: var(--bg-card);
-      padding: 25px 20px;
-      border-radius: var(--radius);
-      text-decoration: none;
-      text-align: center;
-      transition: var(--transition);
-      border: 2px solid transparent;
-    }
-
-    .social-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--violet);
-      box-shadow: var(--shadow-neon);
-    }
-
-    .social-icon {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-
-    .social-name {
-      color: var(--mint);
-      font-weight: 600;
-      margin-bottom: 8px;
-      font-size: 1.1rem;
-    }
-
-    .social-desc {
-      color: #ccc;
-      font-size: 0.9rem;
-    }
-
-    /* Анимации */
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.1); }
@@ -427,40 +375,24 @@
       animation: shake 0.5s ease-in-out;
     }
 
-    /* Адаптивность */
-    @media (max-width: 968px) {
-      .contacts-layout {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-      
-      .social-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .contact-form-section {
-        padding: 20px;
-      }
-      
-      .social-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .contact-item {
-        padding: 12px;
-      }
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
     }
   </style>
 
   <script>
-    // Валидация формы
     const contactForm = document.getElementById('contactForm');
     const inputs = contactForm.querySelectorAll('input, textarea');
     const submitBtn = contactForm.querySelector('button[type="submit"]');
 
-    // Функции валидации
     const validators = {
       name: (value) => {
         if (!value.trim()) return 'Имя обязательно';
@@ -488,7 +420,6 @@
       }
     };
 
-    // Валидация при вводе
     inputs.forEach(input => {
       input.addEventListener('blur', () => validateField(input));
       input.addEventListener('input', () => clearError(input));
@@ -500,27 +431,29 @@
       
       if (error) {
         field.classList.add('shake');
+        errorElement.classList.remove('visually-hidden');
         errorElement.textContent = error;
         setTimeout(() => field.classList.remove('shake'), 500);
       } else {
+        errorElement.classList.add('visually-hidden');
         errorElement.textContent = '';
       }
     }
 
     function clearError(field) {
       const errorElement = document.getElementById(field.id + 'Error');
+      errorElement.classList.add('visually-hidden');
       errorElement.textContent = '';
     }
 
-    // Отправка формы
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       
-      // Валидация всех полей
       let isValid = true;
       inputs.forEach(input => {
         validateField(input);
-        if (document.getElementById(input.id + 'Error').textContent) {
+        const errorElement = document.getElementById(input.id + 'Error');
+        if (!errorElement.classList.contains('visually-hidden') && errorElement.textContent) {
           isValid = false;
         }
       });
@@ -530,14 +463,11 @@
         return;
       }
       
-      // Имитация отправки
       submitBtn.classList.add('sending');
       submitBtn.disabled = true;
       
-      // Имитация задержки сети
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      // Успешная отправка
       alert('Сообщение успешно отправлено! Я свяжусь с вами в ближайшее время.');
       contactForm.reset();
       
@@ -545,9 +475,8 @@
       submitBtn.disabled = false;
     });
 
-    // Анимация появления элементов
     document.addEventListener('DOMContentLoaded', () => {
-      const animatedElements = document.querySelectorAll('.contact-item, .social-card, .response-card');
+      const animatedElements = document.querySelectorAll('.contact-item, .response-card');
       
       animatedElements.forEach((el, index) => {
         el.style.opacity = '0';

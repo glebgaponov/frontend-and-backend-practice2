@@ -16,9 +16,11 @@
 
   <nav class="nav">
     <ul class="nav__list">
+      <body class="page">
+        <a class="skip-link" href="#main">⤵️</a>
       <li class="nav__item"><a href="../index.html">Главная</a></li>
       <li class="nav__item"><a href="practices.html">Проекты</a></li>
-      <li class="nav__item nav__item--active"><a href="practices.html">Дневник</a></li>
+      <li class="nav__item nav__item--active"><a href="news.html">Дневник</a></li>
       <li class="nav__item"><a href="contacts.html">Контакты</a></li>
     </ul>
   </nav>
@@ -167,6 +169,8 @@
             <button type="submit" class="btn btn--full">Добавить запись</button>
           </form>
         </section>
+      </div>
+    </div>
   </main>
 
   <footer class="footer">
@@ -401,57 +405,15 @@
       text-align: center;
     }
 
-    /* Статистика */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
-
-    .stat-card {
-      background: var(--bg-card);
-      padding: 15px;
-      border-radius: var(--radius);
-      text-align: center;
-      box-shadow: 0 0 10px #000;
-      transition: var(--transition);
-    }
-
-    .stat-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-neon);
-    }
-
-    .stat-number {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: var(--mint);
-      text-shadow: 0 0 10px var(--mint);
-      margin-bottom: 5px;
-    }
-
-    .stat-label {
-      color: #ccc;
-      font-size: 0.8rem;
-    }
-
     /* Адаптивность */
     @media (max-width: 968px) {
       .diary-layout {
         grid-template-columns: 1fr;
         gap: 30px;
       }
-      
-      .stats-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
     }
 
     @media (max-width: 480px) {
-      .stats-grid {
-        grid-template-columns: 1fr;
-      }
-      
       .timeline-item {
         padding: 15px;
       }

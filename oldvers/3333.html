@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Calc() Guide | GGM</title>
+  <style>
+    /* ===== Variables ===== */
+    :root {
+      --mint: #ffffff;
+      --violet: #ffffff;
+      --bg-dark: #0d0d0f;
+      --bg-card: #141419;
+      --text-light: #eaeaea;
+      --radius: 14px;
+      --shadow-neon: 0 0 15px var(--mint), 0 0 30px var(--violet);
+      --transition: 0.3s ease;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-2xl: 3rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #0e0e0e;
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ===== Хедер ===== */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(90deg, var(--mint), var(--violet));
+      padding: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #000;
+      box-shadow: 0 0 20px var(--mint);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: rotate(45deg);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { transform: rotate(45deg) translateX(-100%); }
+      100% { transform: rotate(45deg) translateX(100%); }
+    }
+
+    .header__left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .header__icon {
+      width: 40px;
+      height: 40px;
+      filter: drop-shadow(0 0 10px #000);
+    }
+
+    .header__logo {
+      font-size: 2rem;
+      font-weight: 900;
+      text-shadow: 2px 2px 0 #000;
+    }
+
+    /* ===== Навигация ===== */
+    .nav {
+      position: sticky;
+      top: 0;
+      padding-block-start: calc(.75rem + env(safe-area-inset-top));
+      padding-block-end: .75rem;
+      padding-inline-start: calc(var(--space-md, 1rem) + env(safe-area-inset-left));
+      padding-inline-end: calc(var(--space-md, 1rem) + env(safe-area-inset-right));
+      background: var(--bg-card);
+      color: #fff;
+      z-index: 100;
+      isolation: isolate;
+      box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    }
+
+    .nav__list {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav__item {
+      margin: 0;
+    }
+
+    .nav__item a {
+      color: var(--mint);
+      text-decoration: none;
+      padding: 20px 25px;
+      display: block;
+      transition: var(--transition);
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav__item a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: var(--violet);
+      transition: var(--transition);
+      transform: translateX(-50%);
+    }
+
+    .nav__item a:hover::before {
+      width: 80%;
+    }
+
+    .nav__item a:hover {
+      color: var(--violet);
+      text-shadow: 0 0 15px var(--violet);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .nav__item--active a {
+      color: var(--violet);
+      text-shadow: 0 0 15px var(--mint);
+    }
+
+    .nav__item--active a::before {
+      width: 80%;
+      box-shadow: 0 0 10px var(--mint);
+    }
+
+    /* ===== Основной контент ===== */
+    .main {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding-inline: clamp(.75rem, .5rem + 1vw, 2rem);
+    }
+
+    /* ===== Секция заголовка ===== */
+    .intro {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section__title {
+      font-size: clamp(1.5rem, 1.1rem + 2vw, 2rem);
+      margin: 50px 0 30px;
+      color: var(--mint);
+      text-shadow: 0 0 15px var(--violet);
+      text-align: center;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .section__title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--mint), var(--violet));
+      box-shadow: 0 0 10px var(--mint);
+    }
+
+    .intro-text {
+      font-size: 1.2rem;
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ===== Демо-блоки ===== */
+    .demo-section {
+      margin: 4rem 0;
+    }
+
+    .demo-block {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-neon);
+      position: relative;
+      overflow: hidden;
+      animation: glow 3s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 20px var(--mint), 0 0 40px var(--violet);
+      }
+      100% {
+        box-shadow: 0 0 30px var(--violet), 0 0 60px var(--mint);
+      }
+    }
+
+    .demo-title {
+      font-size: 1.5rem;
+      margin: 0 0 1.5rem 0;
+      color: var(--mint);
+      text-shadow: 0 0 10px var(--mint);
+    }
+
+    .demo-description {
+      color: #ccc;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* ===== Контролы ===== */
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .control-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--mint);
+      text-shadow: 0 0 5px var(--mint);
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(255,255,255,0.1);
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, var(--mint), var(--violet));
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--mint);
+    }
+
+    .value-display {
+      font-family: 'Courier New', monospace;
+      color: var(--mint);
+      font-weight: 600;
+      text-shadow: 0 0 5px var(--mint);
+    }
+
+    /* ===== Live-превью ===== */
+    .live-preview {
+      min-height: 150px;
+      border: 2px dashed rgba(255,255,255,0.3);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin: 1.5rem 0;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    /* ===== Блоки кода ===== */
+    .code-block {
+      background: #0a0a0a;
+      color: var(--mint);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      font-family: 'Courier New', monospace;
+      margin: 1.5rem 0;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .code-comment {
+      color: #94a3b8;
+    }
+
+    .code-highlight {
+      color: var(--violet);
+      text-shadow: 0 0 5px var(--violet);
+    }
+
+    /* ===== Специфичные стили для демо ===== */
+    .liquid-box {
+      background: linear-gradient(135deg, var(--mint), var(--violet));
+      color: #000;
+      padding: 1rem;
+      border-radius: var(--radius);
+      text-align: center;
+      width: 100%;
+      font-weight: bold;
+      box-shadow: 0 0 20px var(--mint);
+    }
+
+    .wcag-btn {
+      padding: 0.5rem 1.5rem;
+      background: linear-gradient(90deg, var(--mint), var(--violet));
+      color: #000;
+      border: none;
+      border-radius: var(--radius);
+      font: inherit;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: bold;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wcag-btn:hover {
+      filter: brightness(1.2);
+      box-shadow: var(--shadow-neon);
+      transform: translateY(-2px);
+    }
+
+    .size-info {
+      margin-top: 1rem;
+      padding: 0.5rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      font-family: 'Courier New', monospace;
+      text-align: center;
+    }
+
+    .full-bleed-demo {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+
+    .normal-section {
+      background: var(--bg-card);
+      padding: 2rem;
+      margin: 1rem 0;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .full-bleed-section {
+      background: linear-gradient(90deg, var(--mint), var(--violet));
+      color: #000;
+      padding: 2rem;
+      margin-inline: calc(50% - 50vw);
+      padding-inline: calc(50vw - 50%);
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* ===== Подвал ===== */
+    .footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 80px;
+      background: #0b0b0c;
+      font-size: 1rem;
+      border-top: 1px solid var(--violet);
+      color: var(--mint);
+      box-shadow: 0 -2px 30px var(--violet);
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--mint), transparent);
+      box-shadow: 0 0 10px var(--mint);
+    }
+
+    /* ===== Адаптивность ===== */
+    @media (max-width: 768px) {
+      .nav__list {
+        justify-content: space-around;
+      }
+      
+      .nav__item a {
+        padding: 15px 10px;
+      }
+      
+      .demo-block {
+        padding: 1.5rem;
+      }
+      
+      .controls {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (pointer: coarse) {
+      a, button, .nav__item a { 
+        min-height: 44px; 
+        padding: .75rem 1rem; 
+      }
+    }
+
+    /* ===== Скроллбар ===== */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(var(--mint), var(--violet));
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      box-shadow: 0 0 10px var(--mint);
+    }
+  </style>
+  <link rel="stylesheet" href="style/styles.css" />
+  <link rel="stylesheet" href="style/wide-header.css" />
+</head>
+<body class="page">
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+  
+  <header class="header">
+    <div class="header__left">
+      <img src="images/logo.svg" alt="Логотип" class="header__icon">
+      <h1 class="header__logo">GGM</h1>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Основная навигация">
+    <ul class="nav__list">
+      <li class="nav__item"><a href="/index.html" class="nav__link">Главная</a></li>
+      <li class="nav__item nav__item--active"><a href="calc-guide.html" class="nav__link">Calc() Guide</a></li>
+      <li class="nav__item"><a href="practices.html" class="nav__link">Проекты</a></li>
+      <li class="nav__item"><a href="news.html" class="nav__link">Дневник</a></li>
+      <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="main">
+    <section class="intro">
+      <h1 class="section__title">🧮 Calc() Guide</h1>
+      <p class="intro-text">Интерактивное пособие по CSS функции calc() — учись на живых примерах с неоновым стилем!</p>
+    </section>
+
+    <!-- Демо 1: Жидкие поля -->
+    <section class="demo-section" id="liquid-padding">
+      <div class="demo-block">
+        <h2 class="demo-title">1. Жидкие поля без Media Queries</h2>
+        <p class="demo-description">Адаптивные отступы, которые плавно меняются в зависимости от размера экрана.</p>
+        
+        <div class="controls">
+          <div class="control-group">
+            <label>Базовый отступ: <span class="value-display" id="base-value">1rem</span></label>
+            <input type="range" id="base-range" min="0.5" max="3" step="0.1" value="1">
+          </div>
+          <div class="control-group">
+            <label>Viewport ширина: <span class="value-display" id="vw-value">1vw</span></label>
+            <input type="range" id="vw-range" min="0" max="5" step="0.1" value="1">
+          </div>
+        </div>
+        
+        <div class="live-preview" id="liquid-preview">
+          <div class="liquid-box">
+            padding: calc(var(--base) + var(--vw))<br>
+            Попробуй менять ползунки!
+          </div>
+        </div>
+        
+        <div class="code-block">
+<span class="code-comment">/* Формула: базовый отступ + адаптивная часть */</span><br>
+.container {<br>
+&nbsp;&nbsp;padding: <span id="liquid-formula" class="code-highlight">calc(1rem + 1vw)</span>;<br>
+}
+        </div>
+      </div>
+    </section>
+
+    <!-- Демо 2: WCAG кнопка -->
+    <section class="demo-section" id="wcag-button">
+      <div class="demo-block">
+        <h2 class="demo-title">2. Кнопка с минимальной зоной клика 44px</h2>
+        <p class="demo-description">Соответствие WCAG: минимальный размер кликабельной области 44×44px.</p>
+        
+        <div class="controls">
+          <div class="control-group">
+            <label>Размер шрифта: <span class="value-display" id="font-value">1rem</span></label>
+            <input type="range" id="font-range" min="0.75" max="2" step="0.05" value="1">
+          </div>
+        </div>
+        
+        <div class="live-preview">
+          <button class="wcag-btn" id="wcag-demo">Нажми меня</button>
+          <div class="size-info">
+            Высота кнопки: <span class="value-display" id="height-value">44px</span>
+          </div>
+        </div>
+        
+        <div class="code-block">
+<span class="code-comment">/* Гарантируем минимальную высоту 44px */</span><br>
+.button {<br>
+&nbsp;&nbsp;padding-block: max(.5rem, <span id="wcag-formula" class="code-highlight">calc((44px - 1em) / 2)</span>);<br>
+}
+        </div>
+      </div>
+    </section>
+
+    <!-- Демо 3: Full-bleed -->
+    <section class="demo-section" id="full-bleed">
+      <div class="demo-block">
+        <h2 class="demo-title">3. Full-bleed полоса</h2>
+        <p class="demo-description">Секция на всю ширину окна, даже если контент в центрированном контейнере.</p>
+        
+        <div class="controls">
+          <div class="control-group">
+            <label>Ширина контейнера: <span class="value-display" id="container-value">72rem</span></label>
+            <input type="range" id="container-range" min="40" max="120" step="1" value="72">
+          </div>
+        </div>
+        
+        <div class="live-preview full-bleed-demo">
+          <div class="normal-section">Обычный контент в контейнере</div>
+          <div class="full-bleed-section">Full-bleed секция на всю ширину</div>
+          <div class="normal-section">Снова обычный контент</div>
+        </div>
+        
+        <div class="code-block">
+<span class="code-comment">/* Вытягиваем секцию на всю ширину viewport */</span><br>
+.full-bleed {<br>
+&nbsp;&nbsp;margin-inline: <span class="code-highlight">calc(50% - 50vw)</span>;<br>
+&nbsp;&nbsp;padding-inline: <span class="code-highlight">calc(50vw - 50%)</span>;<br>
+}
+        </div>
+      </div>
+    </section>
+
+    <!-- Теория -->
+    <section class="demo-section" id="theory">
+      <div class="demo-block">
+        <h2 class="demo-title">📚 Синтаксис и правила</h2>
+        <div class="code-block">
+<span class="code-comment">/* ✅ Правильно */</span><br>
+<span class="code-highlight">calc(100% - 2rem)</span><br>
+<span class="code-highlight">calc(2rem * 2)</span><br>
+<span class="code-highlight">calc((100% - 2rem) / 3)</span><br>
+<br>
+<span class="code-comment">/* ❌ Неправильно */</span><br>
+calc(100%-2rem)      <span class="code-comment">// нет пробелов</span><br>
+calc(2rem * 2rem)    <span class="code-comment">// нельзя умножать единицы</span><br>
+calc(1s + 1px)       <span class="code-comment">// несовместимые единицы</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 GGM | Calc() Guide | Создано с 🧮</p>
+  </footer>
+
+  <script>
+    // Демо 1: Жидкие поля
+    const baseRange = document.getElementById('base-range');
+    const vwRange = document.getElementById('vw-range');
+    const liquidPreview = document.getElementById('liquid-preview');
+    const liquidFormula = document.getElementById('liquid-formula');
+
+    function updateLiquidDemo() {
+      const baseValue = baseRange.value;
+      const vwValue = vwRange.value;
+      
+      document.getElementById('base-value').textContent = baseValue + 'rem';
+      document.getElementById('vw-value').textContent = vwValue + 'vw';
+      
+      liquidPreview.style.padding = `calc(${baseValue}rem + ${vwValue}vw)`;
+      liquidFormula.textContent = `calc(${baseValue}rem + ${vwValue}vw)`;
+    }
+
+    baseRange.addEventListener('input', updateLiquidDemo);
+    vwRange.addEventListener('input', updateLiquidDemo);
+
+    // Демо 2: WCAG кнопка
+    const fontRange = document.getElementById('font-range');
+    const wcagDemo = document.getElementById('wcag-demo');
+    const wcagFormula = document.getElementById('wcag-formula');
+
+    function updateWcagDemo() {
+      const fontSize = fontRange.value;
+      
+      document.getElementById('font-value').textContent = fontSize + 'rem';
+      wcagDemo.style.fontSize = fontSize + 'rem';
+      
+      // Показываем вычисленную высоту
+      const computedStyle = window.getComputedStyle(wcagDemo);
+      const height = Math.round(parseFloat(computedStyle.height));
+      document.getElementById('height-value').textContent = height + 'px';
+      
+      // Подсвечиваем если меньше 44px
+      document.getElementById('height-value').style.color = height >= 44 ? 
+        'var(--mint)' : '#ff6b6b';
+        
+      wcagFormula.textContent = `calc((44px - ${fontSize}em) / 2)`;
+    }
+
+    fontRange.addEventListener('input', updateWcagDemo);
+
+    // Демо 3: Full-bleed контейнер
+    const containerRange = document.getElementById('container-range');
+    const fullBleedDemo = document.querySelector('.full-bleed-demo');
+
+    function updateFullBleedDemo() {
+      const containerValue = containerRange.value;
+      document.getElementById('container-value').textContent = containerValue + 'rem';
+      fullBleedDemo.style.maxWidth = containerValue + 'rem';
+      fullBleedDemo.style.margin = '0 auto';
+    }
+
+    containerRange.addEventListener('input', updateFullBleedDemo);
+
+    // Инициализация
+    updateLiquidDemo();
+    updateWcagDemo();
+    updateFullBleedDemo();
+  </script>
+</body>
+</html>

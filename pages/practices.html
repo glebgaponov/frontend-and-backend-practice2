@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Мои проекты | GGM </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Мои проекты | GGM</title>
   <link rel="stylesheet" href="../style/styles.css" />
 </head>
 <body class="page">
@@ -14,16 +14,18 @@
     </div>
   </header>
 
-  <nav class="nav">
+  <nav class="nav" aria-label="Основная навигация">
     <ul class="nav__list">
-      <li class="nav__item"><a href="../index.html">Главная</a></li>
-      <li class="nav__item nav__item--active"><a href="practices.html">Проекты</a></li>
-      <li class="nav__item"><a href="news.html">Дневник</a></li>
-      <li class="nav__item"><a href="contacts.html">Контакты</a></li>
+      <body class="page">
+        <a class="skip-link" href="#main">⤵️</a>
+      <li class="nav__item"><a href="../index.html" class="nav__link">Главная</a></li>
+      <li class="nav__item nav__item--active"><a href="practices.html" class="nav__link">Проекты</a></li>
+      <li class="nav__item"><a href="news.html" class="nav__link">Дневник</a></li>
+      <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
     </ul>
   </nav>
 
-  <main class="main">
+  <main id="main" class="main">
     <section class="projects-page">
       <div class="projects-header">
         <h2 class="section__title">Мои проекты</h2>
@@ -41,10 +43,14 @@
         <!-- Проект 1 -->
         <div class="project-card-extended" data-tech="html css">
           <div class="project-card__image">
-            <img src="../images/project1.jpg" alt="Личный сайт" class="project-card__img" />
-            <div class="project-card__overlay">
-              <button class="project-card__view-btn">Посмотреть проект</button>
-            </div>
+            <img 
+              src="../images/project1-400.jpg"
+              srcset="../images/project1-400.jpg 400w, ../images/project1-800.jpg 800w"
+              sizes="(max-width: 600px) 92vw, 400px"
+              width="400" height="225"
+              loading="lazy" decoding="async"
+              alt="Скриншот личного сайта - адаптивный лендинг с современным дизайном"
+              class="project-card__img" />
           </div>
           <div class="project-card__content">
             <h3 class="project-card__title">Личный сайт</h3>
@@ -60,10 +66,14 @@
         <!-- Проект 2 -->
         <div class="project-card-extended" data-tech="js">
           <div class="project-card__image">
-            <img src="../images/project2.jpg" alt="Todo-приложение" class="project-card__img" />
-            <div class="project-card__overlay">
-              <button class="project-card__view-btn">Посмотреть проект</button>
-            </div>
+            <img 
+              src="../images/project2-400.jpg"
+              srcset="../images/project2-400.jpg 400w, ../images/project2-800.jpg 800w"
+              sizes="(max-width: 600px) 92vw, 400px"
+              width="400" height="225"
+              loading="lazy" decoding="async"
+              alt="Скриншот Todo-приложения - менеджер задач с локальным хранилищем"
+              class="project-card__img" />
           </div>
           <div class="project-card__content">
             <h3 class="project-card__title">Todo-приложение</h3>
@@ -78,10 +88,14 @@
         <!-- Проект 3 -->
         <div class="project-card-extended" data-tech="react">
           <div class="project-card__image">
-            <img src="../images/project3.jpg" alt="Интернет-магазин" class="project-card__img" />
-            <div class="project-card__overlay">
-              <button class="project-card__view-btn">Посмотреть проект</button>
-            </div>
+            <img 
+              src="../images/project3-400.jpg"
+              srcset="../images/project3-400.jpg 400w, ../images/project3-800.jpg 800w"
+              sizes="(max-width: 600px) 92vw, 400px"
+              width="400" height="225"
+              loading="lazy" decoding="async"
+              alt="Скриншот интернет-магазина - E-commerce платформа с корзиной покупок"
+              class="project-card__img" />
           </div>
           <div class="project-card__content">
             <h3 class="project-card__title">Интернет-магазин</h3>
@@ -93,13 +107,14 @@
             </div>
           </div>
         </div>
+      </div>
     </section>
   </main>
 
   <!-- Модальное окно -->
   <div class="modal" id="projectModal">
     <div class="modal__content">
-      <button class="modal__close">&times;</button>
+      <button class="modal__close" aria-label="Закрыть модальное окно">&times;</button>
       <div class="modal__body">
         <div class="modal__image">
           <img src="" alt="" id="modalImage" />
@@ -108,10 +123,6 @@
           <h3 id="modalTitle"></h3>
           <p id="modalDesc"></p>
           <div class="modal__tech" id="modalTech"></div>
-          <div class="modal__links">
-            <a href="#" class="btn" id="modalLive">Живая версия</a>
-            <a href="#" class="btn btn--outline" id="modalSource">Исходный код</a>
-          </div>
         </div>
       </div>
     </div>
@@ -125,9 +136,7 @@
     // Фильтрация проектов
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', function() {
-        // Убрать активный класс у всех кнопок
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('filter-btn--active'));
-        // Добавить активный класс текущей кнопке
         this.classList.add('filter-btn--active');
         
         const filter = this.dataset.filter;
@@ -143,20 +152,21 @@
       });
     });
 
-    // Модальное окно
+    // Модальное окно по клику на карточку
     const modal = document.getElementById('projectModal');
     const closeBtn = document.querySelector('.modal__close');
     
-    document.querySelectorAll('.project-card__view-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const card = this.closest('.project-card-extended');
-        const title = card.querySelector('.project-card__title').textContent;
-        const desc = card.querySelector('.project-card__desc').textContent;
-        const img = card.querySelector('.project-card__img').src;
+    document.querySelectorAll('.project-card-extended').forEach(card => {
+      card.addEventListener('click', function() {
+        const title = this.querySelector('.project-card__title').textContent;
+        const desc = this.querySelector('.project-card__desc').textContent;
+        const img = this.querySelector('.project-card__img').src;
+        const tech = this.querySelector('.project-card__tech').innerHTML;
         
         document.getElementById('modalTitle').textContent = title;
         document.getElementById('modalDesc').textContent = desc;
         document.getElementById('modalImage').src = img;
+        document.getElementById('modalTech').innerHTML = tech;
         
         modal.style.display = 'flex';
       });
@@ -206,6 +216,7 @@
       cursor: pointer;
       transition: var(--transition);
       font-weight: 600;
+      min-height: 44px;
     }
 
     .filter-btn:hover,
@@ -215,10 +226,17 @@
       box-shadow: var(--shadow-neon);
     }
 
+    /* Авто-адаптивная Grid */
     .projects-grid-extended {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: 1fr;
       gap: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .projects-grid-extended {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      }
     }
 
     .project-card-extended {
@@ -227,6 +245,8 @@
       overflow: hidden;
       transition: var(--transition);
       box-shadow: 0 0 20px #000;
+      min-width: 0;
+      cursor: pointer;
     }
 
     .project-card-extended:hover {
@@ -250,40 +270,6 @@
       transform: scale(1.1);
     }
 
-    .project-card__overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: var(--transition);
-    }
-
-    .project-card-extended:hover .project-card__overlay {
-      opacity: 1;
-    }
-
-    .project-card__view-btn {
-      background: linear-gradient(90deg, var(--mint), var(--violet));
-      color: #000;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: var(--transition);
-    }
-
-    .project-card__view-btn:hover {
-      transform: scale(1.1);
-      box-shadow: var(--shadow-neon);
-    }
-
     .project-card__content {
       padding: 20px;
     }
@@ -292,12 +278,14 @@
       color: var(--mint);
       margin-bottom: 10px;
       font-size: 1.3rem;
+      overflow-wrap: anywhere;
     }
 
     .project-card__desc {
       color: #ccc;
       margin-bottom: 15px;
       line-height: 1.5;
+      overflow-wrap: anywhere;
     }
 
     .project-card__tech {
@@ -352,6 +340,8 @@
       cursor: pointer;
       z-index: 1001;
       transition: var(--transition);
+      min-height: 44px;
+      min-width: 44px;
     }
 
     .modal__close:hover {
@@ -361,9 +351,15 @@
 
     .modal__body {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 30px;
       padding: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .modal__body {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     .modal__image img {
@@ -376,41 +372,54 @@
       color: var(--mint);
       font-size: 1.8rem;
       margin-bottom: 15px;
+      overflow-wrap: anywhere;
     }
 
     .modal__info p {
       color: #ccc;
       line-height: 1.6;
       margin-bottom: 20px;
+      overflow-wrap: anywhere;
     }
 
-    .modal__links {
-      display: flex;
-      gap: 15px;
-      margin-top: 25px;
+    /* Уважение к снижению движения */
+    @media (prefers-reduced-motion: reduce) {
+      .project-card-extended,
+      .project-card__img,
+      .filter-btn {
+        transition: none !important;
+      }
+      
+      .project-card-extended:hover {
+        transform: none !important;
+      }
+      
+      .project-card-extended:hover .project-card__img {
+        transform: none !important;
+      }
     }
 
-    .btn--outline {
-      background: transparent;
-      color: var(--mint);
-      border: 2px solid var(--mint);
+    /* Повышенный контраст */
+    @media (prefers-contrast: more) {
+      .project-card-extended,
+      .modal__content {
+        box-shadow: inset 0 0 0 2px #fff !important;
+      }
     }
 
-    .btn--outline:hover {
-      background: var(--mint);
-      color: #000;
+    /* Видимый фокус */
+    .filter-btn:focus-visible,
+    .modal__close:focus-visible {
+      outline: 3px solid #2563eb;
+      outline-offset: 2px;
+    }
+
+    .project-card-extended:focus-visible {
+      outline: 3px solid #2563eb;
+      outline-offset: 2px;
     }
 
     @media (max-width: 768px) {
-      .projects-grid-extended {
-        grid-template-columns: 1fr;
-      }
-      
-      .modal__body {
-        grid-template-columns: 1fr;
-        padding: 20px;
-      }
-      
       .projects-filters {
         gap: 10px;
       }
@@ -418,6 +427,10 @@
       .filter-btn {
         padding: 8px 16px;
         font-size: 0.9rem;
+      }
+      
+      .modal__body {
+        padding: 20px;
       }
     }
   </style>

@@ -2,40 +2,60 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>GGM</title>
   <link rel="stylesheet" href="style/styles.css" />
-</head>
-<body class="page">
-    <header class="header">
-        <div class="header__left">
-          <img src="images/logo.svg" alt="Логотип" class="header__icon">
-          <h1 class="header__logo">GGM</h1>
-        </div>
-      </header>
+  <link rel="stylesheet" href="style/wide-header.css" />
+</head> 
+  <header class="header">
+    <div class="header__left">
+      <img src="images/logo.svg" alt="Логотип" class="header__icon">
+      <h1 class="header__logo">GGM</h1>
+    </div>
+  </header>
 
-  <nav class="nav">
+  <nav class="nav" aria-label="Основная навигация">
     <ul class="nav__list">
-      <li class="nav__item nav__item--active"><a href="index.html">Главная</a></li>
-      <li class="nav__item"><a href="pages/practices.html">Проекты</a></li>
-      <li class="nav__item"><a href="pages/news.html">Дневник</a></li>
-      <li class="nav__item"><a href="pages/contacts.html">Контакты</a></li>
+      <body class="page">
+        <a class="skip-link" href="#main">⤵️</a>
+      <li class="nav__item nav__item--active"><a href="index.html" class="nav__link">Главная</a></li>
+      <li class="nav__item"><a href="pages/practices.html" class="nav__link">Проекты</a></li>
+      <li class="nav__item"><a href="pages/news.html" class="nav__link">Дневник</a></li>
+      <li class="nav__item"><a href="pages/contacts.html" class="nav__link">Контакты</a></li>
     </ul>
   </nav>
 
-  <main class="main">
+  <main id="main" class="main">
     <section class="profile">
       <div class="profile__card">
-        <div class="profile__photo-wrap">
-          <img src="images/photo.png" alt="Фото" class="profile__photo" />
-        </div>
+        <figure class="profile__photo-wrap">
+          <picture>
+            <!-- Современные форматы -->
+            <source
+              type="image/avif"
+              srcset="images/photo-150.avif 150w, images/photo-200.avif 200w, images/photo-300.avif 300w"
+              sizes="200px">
+            <source
+              type="image/webp"
+              srcset="images/photo-150.webp 150w, images/photo-200.webp 200w, images/photo-300.webp 300w"
+              sizes="200px">
+            <!-- Запасной JPEG -->
+            <img class="profile__photo"
+              src="images/photo-200.jpg"
+              srcset="images/photo-150.jpg 150w, images/photo-200.jpg 200w, images/photo-300.jpg 300w"
+              sizes="200px"
+              width="200" height="200"
+              alt="Фото Гапонова Глеба"
+              fetchpriority="high">
+          </picture>
+        </figure>
         <div class="profile__info">
           <h2 class="profile__name">Гапонов Глеб</h2>
           <p class="profile__group">Факультет ИТ, ЭФБО-15-24</p>
           <p class="profile__desc">
             Увлекаюсь веб-разработкой, создаю неоновые сайты и кибер-интерфейсы.
           </p>
-          <a href="images/lol.jpg" download="lol.jpg" class="btn">Скачать резюме </a>
+          <a href="images/lol.jpg" download="lol.jpg" class="btn">Скачать резюме</a>
         </div>
       </div>
     </section>
@@ -68,25 +88,55 @@
       </div>
     </section>
 
-    <section class="projects">
+    <section class="hero">
+      <h2 class="section__title">  </h2>
+      <picture>
+        <source media="(min-width: 1200px)" srcset="images/hero-large.avif" type="image/avif">
+        <source media="(min-width: 768px)" srcset="images/hero-medium.webp" type="image/webp">
+        <img src="images/hero-small.jpg" alt="Неоновый фон" class="hero__img" loading="lazy" decoding="async">
+      </picture>
+    </section>
+
+    <section class="projects-area">
       <h2 class="section__title">Лучшие проекты</h2>
       <div class="projects__grid">
         <div class="project-card">
-          <img src="images/project1.jpg" alt="Проект 1" class="project-card__img" />
+          <img
+            src="images/project1-400.jpg"
+            srcset="images/project1-400.jpg 400w, images/project1-800.jpg 800w"
+            sizes="(max-width: 600px) 92vw, 400px"
+            width="400" height="225"
+            loading="lazy" decoding="async"
+            alt="Скриншот проекта Neon Shop - интернет-магазин в стиле киберпанк"
+            class="project-card__img">
           <div class="project-card__info">
             <h3 class="project-card__title">Neon Shop</h3>
             <p class="project-card__desc">Интернет-магазин в стиле киберпанк</p>
           </div>
         </div>
         <div class="project-card">
-          <img src="images/project2.jpg" alt="Проект 2" class="project-card__img" />
+          <img
+            src="images/project2-400.jpg"
+            srcset="images/project2-400.jpg 400w, images/project2-800.jpg 800w"
+            sizes="(max-width: 600px) 92vw, 400px"
+            width="400" height="225"
+            loading="lazy" decoding="async"
+            alt="Скриншот проекта Portfolio 2.0 - интерактивное портфолио с анимациями"
+            class="project-card__img">
           <div class="project-card__info">
             <h3 class="project-card__title">Portfolio 2.0</h3>
             <p class="project-card__desc">Интерактивное портфолио с анимациями</p>
           </div>
         </div>
         <div class="project-card">
-          <img src="images/project3.jpg" alt="Проект 3" class="project-card__img" />
+          <img
+            src="images/project3-400.jpg"
+            srcset="images/project3-400.jpg 400w, images/project3-800.jpg 800w"
+            sizes="(max-width: 600px) 92vw, 400px"
+            width="400" height="225"
+            loading="lazy" decoding="async"
+            alt="Скриншот проекта CyberTodo - менеджер задач с неон-UI"
+            class="project-card__img">
           <div class="project-card__info">
             <h3 class="project-card__title">CyberTodo</h3>
             <p class="project-card__desc">Менеджер задач с неон-UI</p>
